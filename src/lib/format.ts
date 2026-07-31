@@ -16,7 +16,10 @@ export function formatPrice(value: number | null | undefined): string {
     return `₹${trim(value / CRORE)} Cr`;
   }
   if (value >= LAKH) {
-    return `₹${trim(value / LAKH)} L`;
+    const lakhs = Number((value / LAKH).toFixed(2));
+    // Just under a crore, two-decimal rounding produces "100 L" — arithmetically
+    // right and not how anyone says it. Promote to crores instead.
+    return lakhs >= 100 ? `₹${trim(value / CRORE)} Cr` : `₹${lakhs} L`;
   }
   if (value >= 1000) {
     return `₹${new Intl.NumberFormat("en-IN").format(Math.round(value))}`;

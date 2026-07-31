@@ -104,5 +104,11 @@ src/
 ## Checks
 
 ```bash
-npm run build && npx tsc --noEmit && npx eslint .
+npm test && npm run typecheck && npm run lint && npm run build
 ```
+
+Tests cover the pure logic that is actually easy to get wrong: URL ↔ criteria
+round-tripping (including rejecting tampered enum values and out-of-range
+numbers), and price formatting across the lakh/crore boundaries. Rendering tests
+are deliberately absent — they would need a DOM and would mostly end up testing
+shadcn.

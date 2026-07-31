@@ -90,11 +90,11 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ id: s
       icon: Layers,
       label: "Floor",
       value:
-        property.floorNumber !== null
+        property.floorNumber != null
           ? `${property.floorNumber}${property.totalFloors ? ` of ${property.totalFloors}` : ""}`
           : "—",
     },
-    { icon: Building, label: "Age", value: property.ageYears !== null ? `${property.ageYears} yrs` : "—" },
+    { icon: Building, label: "Age", value: property.ageYears != null ? `${property.ageYears} yrs` : "—" },
     { icon: CalendarDays, label: "Available", value: formatDate(property.availableFrom) },
   ];
 
@@ -207,13 +207,13 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ id: s
             <>
               <Separator />
               <div className="flex flex-wrap gap-6 text-sm">
-                {property.maintenanceMonthly !== null && (
+                {property.maintenanceMonthly != null && (
                   <span className="flex items-center gap-1.5">
                     <IndianRupee className="size-4 text-muted-foreground" />
                     Maintenance {formatPrice(property.maintenanceMonthly)}/mo
                   </span>
                 )}
-                {property.securityDeposit !== null && (
+                {property.securityDeposit != null && (
                   <span className="flex items-center gap-1.5">
                     <IndianRupee className="size-4 text-muted-foreground" />
                     Deposit {formatPrice(property.securityDeposit)}

@@ -48,7 +48,7 @@ export function PropertyCard({ property }: { property: PropertySummary }) {
           </div>
 
           {/* Only present when the search supplied a point and sorted by distance. */}
-          {property.distanceKm !== null && (
+          {property.distanceKm != null && (
             <Badge variant="secondary" className="absolute right-2 top-2 gap-1 backdrop-blur">
               <Navigation className="size-3" />
               {property.distanceKm} km
@@ -78,13 +78,13 @@ export function PropertyCard({ property }: { property: PropertySummary }) {
           </div>
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
-            {property.bedrooms !== null && (
+            {property.bedrooms != null && (
               <span className="flex items-center gap-1">
                 <Bed className="size-3" />
                 {formatBedrooms(property.bedrooms)}
               </span>
             )}
-            {property.bathrooms !== null && (
+            {property.bathrooms != null && (
               <span className="flex items-center gap-1">
                 <Bath className="size-3" />
                 {property.bathrooms}

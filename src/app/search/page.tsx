@@ -208,7 +208,7 @@ function SearchView() {
           </div>
 
           {/* Price stats from the aggregation */}
-          {data?.priceStats?.min !== null && data?.priceStats && (
+          {data?.priceStats?.min != null && data?.priceStats && (
             <div className="mb-4 flex flex-wrap gap-4 rounded-lg border bg-muted/30 px-4 py-2 text-xs text-muted-foreground">
               <span>Low {formatPrice(data.priceStats.min)}</span>
               <span>Median-ish {formatPrice(data.priceStats.avg)}</span>
